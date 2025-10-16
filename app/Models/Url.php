@@ -17,8 +17,4 @@ class Url extends Model
     public function users(){
         return $this->belongsTo(User::class);
     }
-
-    public static function generateShortCode(){
-        return substr(md5(uniqid(rand(), true)), 1, 10);
-    }
 }

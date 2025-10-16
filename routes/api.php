@@ -22,3 +22,4 @@ Route::get('/module/{id}', [ModuleController::class, 'getOneModule'])->middlewar
 
 
 Route::post('/shorten', [UrlController::class, 'createShortUrl'])->middleware('auth:sanctum');
+Route::get('/links', [UrlController::class, 'links'])->middleware('auth:sanctum');

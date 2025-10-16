@@ -39,5 +39,15 @@ class UrlController extends Controller
         }
     }
 
+    public function links(){
+        try {
+            return Url::all()->where('user_id', Auth::user()->id);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => $th->getMessage()
+            ], 500);
+        }
+    }
+
 
 }

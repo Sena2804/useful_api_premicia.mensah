@@ -13,7 +13,7 @@ class UrlController extends Controller
         try {
             $request->validate([
                 'original_url' => 'required|string',
-                'custom_code' => 'sometimes|string|max:10|unique'
+                'custom_code' => 'sometimes|string|max:10|unique:urls'
             ]);
 
 

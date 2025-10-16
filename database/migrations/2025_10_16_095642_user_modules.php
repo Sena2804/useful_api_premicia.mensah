@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_modules', function (Blueprint $table){
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('module_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('module_id')->constrained();
             $table->boolean('active')->default(false);
         });
 

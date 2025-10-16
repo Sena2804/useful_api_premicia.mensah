@@ -11,7 +11,7 @@ class Url extends Model
     protected $fillable = [
         'original_url',
         'user_id',
-        'code'
+        'custom_code'
     ];
 
     public function users(){

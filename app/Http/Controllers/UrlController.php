@@ -19,14 +19,14 @@ class UrlController extends Controller
             $data = $request->all();
             $data['user_id'] = Auth::user()->id;
             $data['original_url'] = $request->original_url;
-            $data['code'] = Str::random(10);
+            $data['custom_code'] = Str::random(10);
             $url = Url::create($data);
 
             return response()->json([
                 "id" => $url->id,
                 "user_id" => $data['user_id'],
                 'original_code' => $data['original_url'],
-                'code' => $data['code'],
+                'code' => $data['custom_code'],
                 'clicks' => $url->clicks?null:0,
                 'created_at' => $url->created_at
             ], 201);

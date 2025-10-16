@@ -52,13 +52,11 @@ class ModuleController extends Controller
     public function getOneModule($id){
         try {
             $modules = DB::select('SELECT * FROM user_modules WHERE module_id = ?', [$id])[0];
-            if($modules->active == true){
+            if($modules){
                 $module = Module::findOrFail($id);
                 return response()->json([
                     'module' => $module,
                 ], 200);
-            } else {
-                return response()->json([], 403);
             }
         } catch (\Throwable $th) {
             return response()->json([

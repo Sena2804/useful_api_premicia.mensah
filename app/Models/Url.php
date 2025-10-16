@@ -10,7 +10,8 @@ class Url extends Model
     use HasUniqueIds;
     protected $fillable = [
         'original_url',
-        'user_id'
+        'user_id',
+        'code'
     ];
 
     public function users(){

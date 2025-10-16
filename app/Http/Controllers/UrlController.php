@@ -13,13 +13,14 @@ class UrlController extends Controller
         try {
             $request->validate([
                 'original_url' => 'required|string',
+                'custom_code' => 'sometimes|string|max:10|unique'
             ]);
 
 
             $data = $request->all();
             $data['user_id'] = Auth::user()->id;
             $data['original_url'] = $request->original_url;
-            $data['custom_code'] = Str::random(10);
+            $data['custom_code'] = $request->custom_code;
             $url = Url::create($data);
 
             return response()->json([

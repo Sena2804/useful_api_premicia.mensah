@@ -20,7 +20,7 @@ class UrlController extends Controller
             $data = $request->all();
             $data['user_id'] = Auth::user()->id;
             $data['original_url'] = $request->original_url;
-            $data['custom_code'] = $request->custom_code;
+            $data['custom_code'] = $request->custom_code?null:Str::random(10);
             $url = Url::create($data);
 
             return response()->json([

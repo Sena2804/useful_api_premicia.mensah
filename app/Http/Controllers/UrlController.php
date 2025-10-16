@@ -11,32 +11,6 @@ class UrlController extends Controller
 {
     public function createShortUrl(Request $request){
         try {
-            /* $request->validate([
-                'original_url' => 'required',
-                'user_id' => 'required|exists:users,id'
-            ]);
-
-            $url = Url::where("original_url", $request->original_url)->first();
-
-            if(!$url){
-                $shortCode = Url::generateShortCode();
-                $url = new Url();
-                $url->original_url = $request->original_url;
-                $url->code = $shortCode;
-                $url->save();
-            }
-
-            return response()->json([
-                "id" => $url->id,
-                "user_id" => $url->user_id,
-                'original_code' => $url->original_url,
-                'code' => url('/') . '/' . $shortCode,
-                'clicks' => $url->clicks,
-                'created_at' => $url->created_at
-            ], 201);
-
-            */
-
             $request->validate([
                 'original_url' => 'required|string',
             ]);
@@ -46,16 +20,15 @@ class UrlController extends Controller
             $data['user_id'] = Auth::user()->id;
             $data['original_url'] = $request->original_url;
             $data['code'] = Str::random(10);
-            Url::create($data);
+            $url = Url::create($data);
 
-            return response()->json([/*
-                "id" => $data['id'],
+            return response()->json([
+                "id" => $url->id,
                 "user_id" => $data['user_id'],
                 'original_code' => $data['original_url'],
                 'code' => $data['code'],
-                'clicks' => $data['clicks'],
-                'created_at' => $data['created_at'] */
-                'data' => $data
+                'clicks' => $url->clicks?null:0,
+                'created_at' => $url->created_at
             ], 201);
 
         } catch (\Throwable $th) {

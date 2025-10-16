@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Concerns\HasUniqueIds;
+use Illuminate\Database\Eloquent\Model;
+
+class Url extends Model
+{
+    use HasUniqueIds;
+    protected $fillable = [
+        'original_url',
+        'user_id'
+    ];
+
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
+
+    public static function generateShortCode(){
+        return substr(md5(uniqid(rand(), true)), 1, 10);
+    }
+}

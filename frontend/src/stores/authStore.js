@@ -26,6 +26,21 @@ export const useAuthStore = defineStore('authStore', {
         password : data.password
       });
       return response;
+    },
+
+    async login(data){
+      const url = 'http://127.0.0.1:8000/api/login'
+
+      const response = await axios.post(url, {
+        email : data.email,
+        password : data.password
+      })
+      this.token = response.data.token;
+
+      if(response.status == 200){
+        router.push('/');
+      }
+      return response;
     }
   }
 })

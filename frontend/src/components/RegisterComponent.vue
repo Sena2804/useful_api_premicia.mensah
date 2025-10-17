@@ -7,6 +7,7 @@ const username = ref('');
 const email = ref('');
 const password = ref('');
 const error = ref('');
+const success = ref('');
 
 const authStore = useAuthStore();
 
@@ -31,6 +32,7 @@ const registerUser = async() => {
   username.value = ''
   email.value = ''
   password.value = ''
+  success.value = 'Compte créé avec succès. Veuillez vous connecter ici'
 }
 </script>
 
@@ -44,6 +46,7 @@ const registerUser = async() => {
       <div class="form_container">
         <form @submit.prevent="registerUser" class="form">
           <div class="error" v-if="error">{{ error }}</div>
+          <router-link v-if="success" to="/login" class="success">{{ success }}</router-link>
           <div class="form_items">
             <label for="name">Your Name</label>
             <input type="text" name="username" v-model="username">
@@ -117,10 +120,22 @@ const registerUser = async() => {
   font-size: 16px;
 }
 
+.success{
+  color: rgb(49, 209, 35);
+  font-size: 16px;
+}
+
 .form_items{
   display: flex;
   flex-direction: column;
   gap: 7px;
+}
+
+.form_items input{
+  padding: 8px 10px;
+  border: 1px solid #a7a2a2;
+  border-radius: 8px;
+  outline: none;
 }
 
 .button_container{

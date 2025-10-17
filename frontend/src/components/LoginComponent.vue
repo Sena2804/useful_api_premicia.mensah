@@ -6,7 +6,6 @@ import { ref } from 'vue';
 const email = ref('');
 const password = ref('');
 const error = ref('');
-
 const authStore = useAuthStore();
 
 const currentUser = ref({
@@ -18,6 +17,16 @@ const loginUser = async() => {
   if(email.value.trim() == '' || password.value.trim() == ''){
     return error.value = 'Tous les champs sont requis';
   }
+
+  currentUser.value = {
+    email : email.value,
+    password : password.value
+  }
+  console.log(currentUser.value);
+
+  await authStore.login(currentUser.value);
+  email.value = ''
+  password.value = ''
 }
 </script>
 
@@ -104,6 +113,13 @@ const loginUser = async() => {
   display: flex;
   flex-direction: column;
   gap: 7px;
+}
+
+.form_items input{
+  padding: 8px 10px;
+  border: 1px solid #a7a2a2;
+  border-radius: 8px;
+  outline: none;
 }
 
 .button_container{

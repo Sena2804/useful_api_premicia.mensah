@@ -21,6 +21,9 @@ const registerUser = async() => {
   if(username.value.trim() == '' || email.value.trim() == '' || password.value.trim() == ''){
     return error.value = 'Tous les champs sont requis';
   }
+  if(password.value.length<8){
+    return error.value = 'Password length not valable';
+  }
   currentUser.value = {
     name : username.value,
     email : email.value,

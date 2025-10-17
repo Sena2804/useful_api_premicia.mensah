@@ -51,7 +51,7 @@ const loginUser = async() => {
 
           <div class="button_container"><button type="submit">Login</button></div>
 
-          <router-link to="/register" class="register_redirection">Don't have an account ?</router-link>
+          <router-link to="/auth/register" class="register_redirection">Don't have an account ?</router-link>
         </form>
      </div>
     </div>

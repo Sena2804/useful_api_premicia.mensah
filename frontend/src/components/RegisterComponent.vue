@@ -62,7 +62,7 @@ const registerUser = async() => {
 
           <div class="button_container"><button type="submit">Register</button></div>
 
-          <router-link to="/login" class="register_redirection">Already have an account ?</router-link>
+          <router-link to="/auth/login" class="register_redirection">Already have an account ?</router-link>
         </form>
      </div>
     </div>

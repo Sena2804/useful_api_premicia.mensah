@@ -5,7 +5,7 @@
   <div class="welcome_container">
     <div class="text_container">
       <h1>Welcome to our Page</h1>
-      <router-link to="/login" class="link_to_login">Let's login <img src="../assets/hand_right.png" alt="arrow right icon"></router-link>
+      <router-link to="/auth/login" class="link_to_login">Let's login <img src="../assets/hand_right.png" alt="arrow right icon"></router-link>
     </div>
   </div>
 </template>

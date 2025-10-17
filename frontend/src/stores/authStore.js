@@ -34,7 +34,7 @@ export const useAuthStore = defineStore('authStore', {
       this.token = response.data.token;
 
       if(response.status == 200){
-        router.push('/connected');
+        router.push('/');
       }
       return response;
     },

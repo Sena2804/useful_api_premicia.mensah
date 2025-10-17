@@ -3,6 +3,6 @@
 
 <template>
   <main>
-  hello
+  Hello World
   </main>
 </template>

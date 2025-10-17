@@ -2,8 +2,8 @@
 </script>
 
 <template>
-  <div>
-    hello
+  <div class="greetings">
+    Hello World
   </div>
 </template>
 

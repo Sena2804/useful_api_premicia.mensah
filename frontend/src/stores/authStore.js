@@ -4,8 +4,7 @@ import router from "@/router";
 
 export const useAuthStore = defineStore('authStore', {
   state: () =>({
-    token : '',
-    user : []
+    token : ''
   }),
 
   getters : {
@@ -38,9 +37,9 @@ export const useAuthStore = defineStore('authStore', {
       this.token = response.data.token;
 
       if(response.status == 200){
-        router.push('/');
+        router.push('/connected');
       }
       return response;
-    }
+    },
   }
 })

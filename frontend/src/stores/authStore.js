@@ -12,9 +12,6 @@ export const useAuthStore = defineStore('authStore', {
   },
 
   actions : {
-    async getToken() {
-
-    },
 
     async register(data){
       const url = 'http://127.0.0.1:8000/api/register'

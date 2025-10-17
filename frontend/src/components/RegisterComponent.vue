@@ -22,7 +22,7 @@ const registerUser = async() => {
     return error.value = 'Tous les champs sont requis';
   }
   if(password.value.length<8){
-    return error.value = 'Password length not valable';
+    return error.value = 'Password length not valable. At least 8 characters';
   }
   currentUser.value = {
     name : username.value,

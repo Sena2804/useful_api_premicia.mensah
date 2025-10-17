@@ -18,10 +18,6 @@ const loginUser = async() => {
     return error.value = 'All fields are required';
   }
 
-  if(password.value.length<8){
-    return error.value = 'Password length not valable';
-  }
-
   currentUser.value = {
     email : email.value,
     password : password.value

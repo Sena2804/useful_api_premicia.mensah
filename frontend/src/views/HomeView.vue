@@ -1,8 +1,8 @@
 <script setup>
+import WelcomeComponent from '@/components/WelcomeComponent.vue';
+
 </script>
 
 <template>
-  <main>
-  Hello World
-  </main>
+  <WelcomeComponent></WelcomeComponent>
 </template>

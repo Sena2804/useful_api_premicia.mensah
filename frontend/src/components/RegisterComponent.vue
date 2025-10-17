@@ -27,7 +27,7 @@ const registerUser = async() => {
   }
   console.log(currentUser.value);
 
-  await authStore.register(currentUser);
+  await authStore.register(currentUser.value);
   username.value = ''
   email.value = ''
   password.value = ''

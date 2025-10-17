@@ -29,7 +29,8 @@ const loginUser = async() => {
         <h2 class="form_title">Welcome Back</h2>
       </div>
       <div class="form_container">
-        <form action="" class="form">
+        <div class="error" v-if="error">{{ error }}</div>
+        <form @submit.prevent="loginUser" class="form">
           <div class="form_items">
             <label for="email">Your Email</label>
             <input type="email" name="email" v-model="email">
@@ -92,6 +93,11 @@ const loginUser = async() => {
   flex-direction: column;
   gap: 40px;
   font-size: 17px;
+}
+
+.error{
+  color: red;
+  font-size: 16px;
 }
 
 .form_items{

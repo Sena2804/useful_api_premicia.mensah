@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import axios from 'axios';
+import router from "@/router";
 
 export const useAuthStore = defineStore('authStore', {
   state: () =>({
@@ -19,12 +20,12 @@ export const useAuthStore = defineStore('authStore', {
     async register(data){
       const url = 'http://127.0.0.1:8000/api/register'
 
-      const response = axios.post(url, {
+      const response = await axios.post(url, {
         name : data.name,
         email : data.email,
         password : data.password
       });
-      console.log(response);
+      return response;
     }
   }
 })
